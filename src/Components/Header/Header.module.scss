@@ -1,0 +1,7 @@
+@import "../../Styles/colors";
+@import "../../Styles/constants";
+
+.header {
+  background-color: $header-background;
+  height: $header-height;
+}
