@@ -10,18 +10,24 @@ const HeaderRight = () => null;
 HeaderLeft.displayName = 'Left';
 HeaderRight.displayName = 'Right';
 
-const renderSubComponent = (props, subComponent) => {
-    const instanceOfSubComponent = getSubComponentInstance(props.children, subComponent);
-    if (!instanceOfSubComponent)
+const renderSubComponents = (props, subComponent) => {
+    const instancesOfSubComponent = getSubComponentInstance(props.children, subComponent);
+    if (!instancesOfSubComponent.length)
         return null;
-    const {
-        children,
-        ...restProps
-    } = instanceOfSubComponent.props;
+
     return (
-        <div className={'d-flex'} {...restProps}>
-            {children}
-        </div>
+        instancesOfSubComponent.map((instance, index) => {
+            const {
+                children,
+                ...restProps
+            } = instance.props;
+
+            return (
+                <div className={'d-flex'} key={index} {...restProps}>
+                    {children}
+                </div>
+            )
+        })
     );
 };
 
@@ -37,8 +43,8 @@ const Header = (props) => {
             className={cx(styles.header, 'd-flex justify-content-between align-items-center w-100')}
             {...restProps}
         >
-            {renderSubComponent(props, HeaderLeft)}
-            {renderSubComponent(props, HeaderRight)}
+            {renderSubComponents(props, HeaderLeft)}
+            {renderSubComponents(props, HeaderRight)}
         </header>
     );
 };

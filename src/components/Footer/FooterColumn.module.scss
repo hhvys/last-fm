@@ -1,0 +1,18 @@
+@import "../../styles/colors";
+
+.header {
+  font-size: 0.8rem;
+}
+
+.footerList {
+
+}
+
+.footerList a {
+  font-size: 0.8rem;
+  color: $secondary-font-color;
+}
+
+.footerList a:hover {
+  color: $primary-font-color;
+}

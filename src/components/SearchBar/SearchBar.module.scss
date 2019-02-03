@@ -1,7 +1,7 @@
-@import "../../Styles/colors";
+@import "../../styles/colors";
 
 .searchBar {
-  border: 1px solid #ccc;
+  border: 1px solid $border-color;
   border-radius: 100px;
   background-color: $main-background;
   height: 35px;

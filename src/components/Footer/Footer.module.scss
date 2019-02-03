@@ -1,0 +1,11 @@
+@import "../../styles/colors";
+
+.footer {
+  background-color: $main-background;
+  color: $secondary-font-color;
+  margin-bottom: 4rem;
+}
+
+.innerFooter {
+  border-top: 1px solid $border-color;
+}
