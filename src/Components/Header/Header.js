@@ -19,7 +19,7 @@ const renderSubComponent = (props, subComponent) => {
         ...restProps
     } = instanceOfSubComponent.props;
     return (
-        <div {...restProps} className={'d-flex'}>
+        <div className={'d-flex'} {...restProps}>
             {children}
         </div>
     );
@@ -34,8 +34,8 @@ const Header = (props) => {
 
     return (
         <header
+            className={cx(styles.header, 'd-flex justify-content-between align-items-center w-100')}
             {...restProps}
-            className={cx(styles.header, 'd-flex justify-content-between align-items-center')}
         >
             {renderSubComponent(props, HeaderLeft)}
             {renderSubComponent(props, HeaderRight)}

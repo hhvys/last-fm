@@ -1,0 +1,23 @@
+@import "../../Styles/colors";
+
+.searchBar {
+  border: 1px solid #ccc;
+  border-radius: 100px;
+  background-color: $main-background;
+  height: 35px;
+}
+
+.input {
+  height: 100%;
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1.2em;
+  font-weight: lighter;
+}
+
+.input::placeholder {
+  opacity: 0.5;
+  font-size: 1em;
+  font-weight: normal;
+}
