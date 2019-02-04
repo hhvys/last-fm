@@ -17,7 +17,7 @@ const AlbumThumbnail = (props) => {
 
     return (
         <div className={cx(styles.thumbnail, 'd-flex flex-column mr-4 mb-4')} {...restProps}>
-            <a className={''} href={albumUrl}>
+            <a href={albumUrl}>
                 <img src={imgSrc} alt=""/>
                 <p className={'mb-0'}>{albumName}</p>
             </a>

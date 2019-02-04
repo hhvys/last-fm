@@ -1,5 +1,4 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './Header.module.scss';
 import cx from 'classnames';
 
@@ -40,7 +39,7 @@ const Header = (props) => {
 
     return (
         <header
-            className={cx(styles.header, 'd-flex justify-content-between align-items-center w-100')}
+            className={cx(styles.header, 'position-fixed d-flex justify-content-between align-items-center w-100')}
             {...restProps}
         >
             {renderSubComponents(props, HeaderLeft)}

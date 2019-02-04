@@ -1,0 +1,12 @@
+@import "../../styles/colors";
+
+.row {
+  font-weight: lighter;
+  color: $secondary-font-color;
+  border-bottom: 1px solid $border-color;
+}
+
+.row > li:hover {
+  color: $primary-font-color;
+  cursor: pointer;
+}
