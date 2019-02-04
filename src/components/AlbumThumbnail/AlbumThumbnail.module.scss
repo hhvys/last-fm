@@ -1,0 +1,19 @@
+@import "../../styles/colors";
+
+.thumbnail {
+  font-weight: lighter;
+  font-size: 0.8rem;
+}
+
+.thumbnail a {
+  color: $primary-font-color;
+}
+
+img {
+  border: 2px solid $img-border-color;
+  border-radius: 5px;
+}
+
+.meta:hover {
+  text-decoration: none;
+}
