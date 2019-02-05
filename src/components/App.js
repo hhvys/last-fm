@@ -5,7 +5,7 @@ import Header from './Header/Header';
 import SearchBar from "./SearchBar/SearchBar";
 import Footer from "./Footer/Footer";
 import ThumbnailContainer from "./AlbumThumbnail/ThumbnailContainer";
-import NavigationRow from "./NavigationRow/NavigationRow";
+import GenreNavigationRow from "../containers/GenreNavigationRow";
 
 const App = () => {
     return (
@@ -15,46 +15,8 @@ const App = () => {
                     <SearchBar placeholder={'Search for Songs, Album, Artist... '}/>
                 </Header.Left>
             </Header>
-            <NavigationRow
-                navigationTabs = {[
-                    {
-                        key: 1,
-                        name: 'item1'
-                    },
-                    {
-                        key: 1,
-                        name: 'item1'
-                    },
-                    {
-                        key: 1,
-                        name: 'item1'
-                    },
-                    {
-                        key: 1,
-                        name: 'item1'
-                    },
-                    {
-                        key: 1,
-                        name: 'item1'
-                    },
-                    {
-                        key: 1,
-                        name: 'item1'
-                    },
-                    {
-                        key: 1,
-                        name: 'item1'
-                    },
-                    {
-                        key: 1,
-                        name: 'item1'
-                    },
-                    {
-                        key: 1,
-                        name: 'item1'
-                    }
-                ]}/>
-            <ThumbnailContainer style={{width: '25%'}}/>
+            <GenreNavigationRow/>
+            <ThumbnailContainer style={{width: '100%'}}/>
             <Footer>
                 <Footer.Column
                     header={'Top Songs'}

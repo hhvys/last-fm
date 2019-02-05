@@ -2,6 +2,7 @@
 
 body {
   margin: $header-height 45px 15px !important;
+  min-width: $body-min-width;
   padding: 0;
   font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;;
   -webkit-font-smoothing: antialiased;
