@@ -2,16 +2,18 @@
 
 .thumbnail {
   font-weight: lighter;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
+  color: $secondary-font-color;
 }
 
-.thumbnail a {
+.thumbnail .albumUrl {
   color: $primary-font-color;
 }
 
 img {
   border: 2px solid $img-border-color;
   border-radius: 5px;
+  width: 100%;
 }
 
 .meta:hover {

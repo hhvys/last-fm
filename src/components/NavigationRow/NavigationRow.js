@@ -1,6 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 
 import styles from './NavigationRow.module.scss';
 
@@ -15,7 +16,9 @@ const NavigationRow = (props) => {
             {
                 navigationTabs &&
                 navigationTabs.map((item, index) => (
-                    <li key={index} className="mr-3 ml-3 pt-2 pb-2 text-center">{item.name}</li>
+                    <li key={index} className="mr-3 ml-3 pt-2 pb-2 text-center">
+                        <Link to={`/${item.name}`}>{item.name}</Link>
+                    </li>
                 ))
             }
         </ul>
@@ -28,4 +31,4 @@ NavigationRow.propType = {
     }))
 };
 
-export default NavigationRow;
+export default React.memo(NavigationRow);

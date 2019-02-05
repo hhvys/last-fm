@@ -52,4 +52,4 @@ const Header = (props) => {
 Header.Left = HeaderLeft;
 Header.Right = HeaderRight;
 
-export default Header;
+export default React.memo(Header);
