@@ -20,9 +20,19 @@ export function fetchGenres(limit = 15) {
     return fetch(getUrlFromParams(params)).then(res => res.json())
 }
 
-export function fetchAlbumsFromGenres(genre, limit = 30) {
+export function fetchAlbumsFromGenre(genre, limit = 30) {
     const params = {
         method: 'tag.gettopalbums',
+        tag: genre,
+        limit,
+        ...defaultParams
+    };
+    return fetchJSONData(params);
+}
+
+export function fetchArtistsFromGenre(genre, limit = 20) {
+    const params = {
+        method: 'tag.getTopArtists',
         tag: genre,
         limit,
         ...defaultParams

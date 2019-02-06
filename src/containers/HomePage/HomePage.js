@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react'
 
-import NavigationRow from "../components/NavigationRow/NavigationRow";
-import ThumbnailContainer from './AlbumThumbnailContainer';
-import {fetchGenres} from "../api/lastFmServices";
+import NavigationRow from "../../components/NavigationRow/NavigationRow";
+import {fetchGenres} from "../../api/lastFmServices";
+import HomePageMain from "./HomePageMain";
 
 const HomePage = (props) => {
     const navigationTabs = useFetchGenres(props);
@@ -11,7 +11,7 @@ const HomePage = (props) => {
     return (
         <>
             <NavigationRow navigationTabs={navigationTabs}/>
-            <ThumbnailContainer genre={genre}/>
+            <HomePageMain genre={genre}/>
         </>
     );
 };

@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 import styles from './Thumbnail.module.scss';
 
 const Thumbnail = (props) => {
-
+    //todo change props name
     const {
         albumUrl,
         albumName,
@@ -18,13 +18,13 @@ const Thumbnail = (props) => {
     } = props;
 
     return (
-        <div className={cx(styles.thumbnail, 'txt-ellipsis d-flex flex-column mr-4 mb-4')}
+        <div className={cx(styles.thumbnail, 'd-flex flex-column mb-4')}
              style={{width: size}} {...restProps}>
-            <Link to={albumUrl} className={cx(styles.albumUrl, 'txt-ellipsis')}>
+            <Link to={albumUrl} className={cx(styles.albumUrl, 'mr-4')}>
                 <img src={imgSrc} alt=""/>
                 <p className={'mb-0 txt-ellipsis'}>{albumName}</p>
             </Link>
-            <a href={metaUrl} className={styles.meta}>{metaText}</a>
+            <a href={metaUrl} className={cx(styles.meta, 'txt-ellipsis')}>{metaText}</a>
         </div>
     )
 };

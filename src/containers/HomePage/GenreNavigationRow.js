@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
-import NavigationRow from "../components/NavigationRow/NavigationRow";
-import {fetchGenres} from "../api/lastFmServices";
+import NavigationRow from "../../components/NavigationRow/NavigationRow";
+import {fetchGenres} from "../../api/lastFmServices";
 
 function GenreNavigationRow(props) {
 

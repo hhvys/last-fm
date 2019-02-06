@@ -1,10 +1,12 @@
 import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 import styles from './NavigationRow.module.scss';
 
+
+//todo activeLink
 const NavigationRow = (props) => {
 
     const {
@@ -17,7 +19,9 @@ const NavigationRow = (props) => {
                 navigationTabs &&
                 navigationTabs.map((item, index) => (
                     <li key={index} className="mr-3 ml-3 pt-2 pb-2 text-center">
-                        <Link to={`/${item.name}`}>{item.name}</Link>
+                        <NavLink exact to={item.name} activeClassName={styles.activeLink}>
+                            {item.name}
+                        </NavLink>
                     </li>
                 ))
             }

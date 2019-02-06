@@ -5,7 +5,7 @@ import './App.css';
 import Header from './Header/Header';
 import SearchBar from "./SearchBar/SearchBar";
 import Footer from "./Footer/Footer";
-import HomePage from "../containers/HomePage";
+import HomePage from "../containers/HomePage/HomePage";
 
 const App = () => {
     return (
