@@ -39,4 +39,4 @@ function useFetchAlbumsOfGenre(genre) {
     return albumDetails;
 }
 
-export default React.memo(AlbumContainer);
+export default AlbumContainer;

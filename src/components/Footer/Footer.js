@@ -33,4 +33,4 @@ const Footer = (props) => {
 
 Footer.Column = FooterColumn;
 
-export default React.memo(Footer);
+export default Footer;

@@ -39,4 +39,4 @@ function useFetchGenres(props) {
 }
 
 
-export default React.memo(HomePage);
+export default HomePage;

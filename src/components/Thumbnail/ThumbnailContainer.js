@@ -44,4 +44,4 @@ ThumbnailContainer.propType = {
     }))
 };
 
-export default React.memo(ThumbnailContainer);
+export default ThumbnailContainer;

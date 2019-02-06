@@ -39,4 +39,4 @@ FooterColumn.propTypes = {
   })),
 };
 
-export default React.memo(FooterColumn);
+export default FooterColumn;

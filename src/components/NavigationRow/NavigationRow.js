@@ -31,4 +31,4 @@ NavigationRow.propType = {
     }))
 };
 
-export default React.memo(NavigationRow);
+export default NavigationRow;
