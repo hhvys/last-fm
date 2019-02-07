@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import ThumbnailContainer from '../../components/Thumbnail/ThumbnailContainer';
 import {fetchAlbumsFromGenre, fetchArtistsFromGenre} from '../../api/lastFmServices';
 import {imageSize} from "../../api/constants";
+import {getImageUrl} from "../../helpers/getSubComponentInstance";
 
 const AlbumContainer = (props) => {
     const {
@@ -15,7 +16,7 @@ const AlbumContainer = (props) => {
         artistsLoading] = useFetchAlbumArtist(genre);
 
     return (
-        <div className={'d-flex'}>
+        <div className={'d-flex w-100'}>
             <ThumbnailContainer
                 headerText={'Top Albums'}
                 headerUrl={`top-albums/${genre}`}
@@ -36,8 +37,6 @@ const AlbumContainer = (props) => {
                 {...restProps}/>
         </div>);
 };
-
-const getImageUrl = (album, size) => album.image[size]['#text'];
 
 function useFetchAlbumArtist(genre) {
 

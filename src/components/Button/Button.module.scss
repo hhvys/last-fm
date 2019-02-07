@@ -1,0 +1,23 @@
+@import "../../styles/colors";
+//todo color constant
+
+.button {
+  font-size: 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  color: inherit;
+}
+
+.button a {
+  color: inherit;
+}
+
+.button:hover {
+  color: $main-background;
+  background-color: $secondary-font-color;
+}
+
+.button a:hover {
+  color: white;
+  text-decoration: none;
+}

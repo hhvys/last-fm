@@ -13,20 +13,8 @@
   color: $primary-font-color;
 }
 
-.button {
-  font-size: 1rem;
-  border-radius: 20px;
-  font-weight: bold;
-  color: inherit;
-}
-
-//todo color constant
-.button:hover {
-  color: white;
-  background-color: $secondary-font-color;
-}
-
-.button a:hover {
-  color: white;
-  text-decoration: none;
+.img {
+  border: 2px solid $img-border-color;
+  border-radius: 5px;
+  width: 100%;
 }

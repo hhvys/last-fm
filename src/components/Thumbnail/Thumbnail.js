@@ -21,7 +21,7 @@ const Thumbnail = (props) => {
         <div className={cx(styles.thumbnail, 'd-flex flex-column mb-4')}
              style={{width: size}} {...restProps}>
             <Link to={albumUrl} className={cx(styles.albumUrl, 'mr-4')}>
-                <img src={imgSrc} alt=""/>
+                <img className={styles.img} src={imgSrc} alt=""/>
                 <p className={'mb-0 txt-ellipsis'}>{albumName}</p>
             </Link>
             <a href={metaUrl} className={cx(styles.meta, 'txt-ellipsis')}>{metaText}</a>

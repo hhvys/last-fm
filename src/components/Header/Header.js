@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Header.module.scss';
 import cx from 'classnames';
 
-import getSubComponentInstance from '../../helpers/getSubComponentInstance';
+import {getSubComponentInstance} from '../../helpers/getSubComponentInstance';
 
 const HeaderLeft = () => null;
 const HeaderRight = () => null;
@@ -22,7 +22,7 @@ const renderSubComponents = (props, subComponent) => {
             } = instance.props;
 
             return (
-                <div className={'d-flex'} key={index} {...restProps}>
+                <div className={'d-flex mx-3'} key={index} {...restProps}>
                     {children}
                 </div>
             )
@@ -36,15 +36,20 @@ const Header = (props) => {
         children,
         ...restProps
     } = props;
-
     return (
-        <header
-            className={cx(styles.header, 'position-fixed d-flex justify-content-between align-items-center w-100')}
-            {...restProps}
-        >
-            {renderSubComponents(props, HeaderLeft)}
-            {renderSubComponents(props, HeaderRight)}
-        </header>
+        <>
+            <header
+                className={cx(styles.header, 'position-fixed d-flex justify-content-between align-items-center w-100')}
+                {...restProps}
+            >
+                {renderSubComponents(props, HeaderLeft)}
+                {renderSubComponents(props, HeaderRight)}
+                {children}
+            </header>
+            {/*<div className={cx(styles.searchResults, 'position-fixed w-100')}>*/}
+                {/*Hello*/}
+            {/*</div>*/}
+        </>
     );
 };
 

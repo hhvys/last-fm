@@ -14,18 +14,20 @@ const NavigationRow = (props) => {
     } = props;
 
     return (
-        <ul className={cx(styles.row, 'd-flex flex-wrap justify-content-center mb-4')}>
-            {
-                navigationTabs &&
-                navigationTabs.map((item, index) => (
-                    <li key={index} className="mr-3 ml-3 pt-2 pb-2 text-center">
-                        <NavLink exact to={item.name} activeClassName={styles.activeLink}>
-                            {item.name}
-                        </NavLink>
-                    </li>
-                ))
-            }
-        </ul>
+        <nav>
+            <ul className={cx(styles.row, 'd-flex flex-wrap justify-content-center mb-4')}>
+                {
+                    navigationTabs &&
+                    navigationTabs.map((item, index) => (
+                        <li key={index} className="mr-3 ml-3 pt-2 pb-2 text-center">
+                            <NavLink to={`/${item.name}`} activeClassName={styles.activeLink}>
+                                {item.name}
+                            </NavLink>
+                        </li>
+                    ))
+                }
+            </ul>
+        </nav>
     )
 };
 

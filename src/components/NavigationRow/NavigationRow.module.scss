@@ -17,6 +17,6 @@
   text-decoration: none;
 }
 
-.activeLink {
-  color: red;
+a.activeLink{
+  color: $primary-font-color;
 }

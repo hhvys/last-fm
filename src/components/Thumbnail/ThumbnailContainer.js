@@ -6,6 +6,7 @@ import cx from 'classnames';
 import Thumbnail from "./Thumbnail";
 import styles from './ThumbnailContainer.module.scss';
 import loading from '../../rsc/loading.gif';
+import Button from "../Button/Button";
 
 const ThumbnailContainer = (props) => {
 
@@ -25,15 +26,13 @@ const ThumbnailContainer = (props) => {
         isLoading ?
 
             (<div {...restProps}>
-                <img style={{width: '90%'}} src={loading} alt={""}/>
+                <img className={styles.img} style={{width: '90%'}} src={loading} alt={""}/>
             </div>) :
 
             (<div {...restProps}>
                 <div className={cx(styles.header, 'mb-3 d-flex align-items-baseline')}>
                     <Link to={headerUrl} className={cx('mr-3')}>{headerText}</Link>
-                    <button className={cx(styles.button, 'px-3 py-1')}>
-                        <Link to={headerUrl}>{headerButtonText}</Link>
-                    </button>
+                    <Button toUrl={headerUrl} text={headerButtonText}/>
                 </div>
 
                 <div className={'d-flex flex-wrap align-content-start justify-content-center'}>

@@ -1,0 +1,20 @@
+@import "../../styles/colors";
+
+.container {
+  background-color: $main-background;
+}
+
+.header {
+  text-transform: uppercase;
+  color: $secondary-font-color;
+}
+
+.line {
+  height: 1px;
+  background-color: $secondary-font-color;
+  flex: 1;
+}
+
+.imgContainer {
+  flex: 1;
+}

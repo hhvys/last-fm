@@ -40,3 +40,13 @@ export function fetchArtistsFromGenre(genre, limit = 20) {
     return fetchJSONData(params);
 }
 
+export const fetchSearchResults = function (query, searchFor, limit = 3) {
+    const params = {
+        method: `${searchFor}.search`,
+        [searchFor]: query,
+        limit,
+        ...defaultParams
+    };
+
+    return fetchJSONData(params);
+};

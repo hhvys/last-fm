@@ -1,0 +1,33 @@
+@import "../../styles/colors";
+
+.container {
+  width: 250px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+}
+
+.container div {
+  display: flex;
+  flex-direction: column;
+  color: $primary-font-color;
+  text-transform: capitalize;
+}
+
+.img {
+  width: 50px;
+  border: 1px solid $img-border-color;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+.container span {
+  color: $secondary-font-color;
+}
+
+a.container:hover {
+  background-color: $header-background;
+  color: $primary-font-color;
+  text-decoration: none;
+}
+
+

@@ -3,7 +3,7 @@ import cx from 'classnames';
 
 import FooterColumn from './FooterColumn';
 import styles from './Footer.module.scss';
-import getSubComponentInstance from "../../helpers/getSubComponentInstance";
+import {getSubComponentInstance} from "../../helpers/getSubComponentInstance";
 
 const renderSubComponents = (props, subComponent) => {
     const instancesOfSubComponent = getSubComponentInstance(props.children, subComponent);

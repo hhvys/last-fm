@@ -7,3 +7,11 @@
   background-color: $header-background;
   height: $header-height;
 }
+
+.searchResults {
+  height: $search-results-height;
+  background-color: $main-background;
+  left: 0;
+  top: $header-height;
+  border-bottom: 2px solid $border-color;
+}
