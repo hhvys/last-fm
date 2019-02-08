@@ -34,7 +34,7 @@ const SearchResultsContainer = (props) => {
         (<div className={cx(styles.outer, 'd-flex justify-content-center position-fixed w-100')} {...restProps}>
             <div className={cx(styles.container, 'd-flex mx-2 p-2 flex-wrap overflow-auto justify-content-center')}>
                 {
-                    (resultStored.length) ?
+                    (resultStored.length && !isSearching) ?
                         resultStored.map((result, index) => {
                             const resultsOf = result.resultsOf;
                             const imageDetails = result.result.map(item => ({
@@ -59,41 +59,43 @@ const SearchResultsContainer = (props) => {
     )
 };
 
+const setResults = _.debounce((query, setSearchResults, setIsSearching) => {
+    const searchFor = ['artist', 'album', 'track'];
+    Promise.all(searchFor.map(arg => fetchSearchResults(query, arg)))
+        .then((results) => {
+            const allResults = [];
+            results.forEach((result, index) => {
+                const searchResultsOf = searchFor[index];
+                if (_.get(result, `results[${searchResultsOf + 'matches'}][${searchResultsOf}].length`)) {
+                    allResults.push({
+                        resultsOf: searchResultsOf,
+                        result: _.get(result, `results[${searchResultsOf + 'matches'}][${searchResultsOf}]`)
+                    })
+                }
+            });
+            setSearchResults({
+                query,
+                results: allResults
+            });
+            setIsSearching(false);
+        })
+}, 200);
 
-function useFetchSearchResults(query) {
+
+const useFetchSearchResults = (query) => {
 
     const [searchResults, setSearchResults] = useState({query, results: []});
     const [isSearching, setIsSearching] = useState(false);
-
     useEffect(() => {
         setIsSearching(true);
-        const searchFor = ['artist', 'album', 'track'];
 
-        //todo debounce
-        Promise.all(searchFor.map(arg => fetchSearchResults(query, arg)))
-            .then((results) => {
-                const allResults = [];
-                results.forEach((result, index) => {
-                    const searchResultsOf = searchFor[index];
-                    if (_.get(result, `results[${searchResultsOf + 'matches'}][${searchResultsOf}].length`)) {
-                        allResults.push({
-                            resultsOf: searchResultsOf,
-                            result: _.get(result, `results[${searchResultsOf + 'matches'}][${searchResultsOf}]`)
-                        })
-                    }
-                });
-                setSearchResults({
-                    query,
-                    results: allResults
-                });
-                setIsSearching(false);
-            })
+        setResults(query, setSearchResults, setIsSearching);
 
     }, [query]);
 
     return [searchResults, isSearching];
 
-}
+};
 
 SearchResultsContainer.propType = {
     searchQuery: PropTypes.string
