@@ -19,19 +19,23 @@ const SearchResultsContainer = (props) => {
         ...restProps
     } = props;
 
-    let [searchResults, isSearching] = useFetchSearchResults(searchQuery);
-    //todo results that match to current query
-    const resultsFor = searchResults.query;
-    const failedImage = isSearching || resultsFor !== searchQuery ? loading : noResults;
-    searchResults = searchResults.results;
+    let [results, isSearching] = useFetchSearchResults(searchQuery);
+    const [resultStored, setResultStored] = useState([]);
+    const [resultStoredFor, setResultStoredFor] = useState('');
+    const resultsFor = results.query;
+    if(resultsFor === searchQuery && (resultStoredFor !== searchQuery || results.results.length > resultStored.length)) {
+        setResultStored(results.results);
+        setResultStoredFor(searchQuery);
+    }
+    const failedImage = resultStoredFor !== searchQuery || isSearching ? loading : noResults;
 
     return (
 
         (<div className={cx(styles.outer, 'd-flex justify-content-center position-fixed w-100')} {...restProps}>
             <div className={cx(styles.container, 'd-flex mx-2 p-2 flex-wrap overflow-auto justify-content-center')}>
                 {
-                    (searchResults.length) ?
-                        searchResults.map((result, index) => {
+                    (resultStored.length) ?
+                        resultStored.map((result, index) => {
                             const resultsOf = result.resultsOf;
                             const imageDetails = result.result.map(item => ({
                                 imageUrl: '#',
