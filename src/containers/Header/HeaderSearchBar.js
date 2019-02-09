@@ -16,6 +16,7 @@ const HeaderSearchBar = (props) => {
 
     $(document).on('click','html',function(){
         setShowSearchResults(false);
+        $(document).off('click', 'html');
     });
 
     return (
