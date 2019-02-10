@@ -1,12 +1,15 @@
 import React, {useEffect, useState} from 'react'
 
 import NavigationRow from "../../components/NavigationRow/NavigationRow";
-import {fetchGenres} from "../../api/lastFmServices";
+import {fetchTopCharts} from "../../api/lastFmServices";
 import HomePageMain from "./HomePageMain";
 
 const HomePage = (props) => {
-    const navigationTabs = useFetchGenres(props);
+    const navigationTabs = useFetchTopCharts('tag');
     const genre = props.match.params.genre;
+
+    if(!genre && navigationTabs.length)
+        props.history.push(navigationTabs[0].name);
 
     return (
         <>
@@ -16,26 +19,22 @@ const HomePage = (props) => {
     );
 };
 
-function useFetchGenres(props) {
-    const genre = props.match.params.genre;
-    const [navigationTabs, setNavigationTabs] = useState([]);
+export function useFetchTopCharts(chartsFor) {
+    const [state, setState] = useState([]);
 
     useEffect(() => {
-        fetchGenres()
+        fetchTopCharts(chartsFor)
             .then(res => {
-                const tabs = res.tags.tag.map(tag => {
+                const charts = res[chartsFor + 's'][chartsFor].map(chart => {
                     return {
-                        name: tag.name,
-                        id: tag.name
+                        name: chart.name,
+                        id: chart.name
                     }
                 });
-                setNavigationTabs(tabs);
-                if (!genre) {
-                    props.history.push(tabs[0].name)
-                }
+                setState(charts);
             })
     }, []);
-    return navigationTabs;
+    return state;
 }
 
 

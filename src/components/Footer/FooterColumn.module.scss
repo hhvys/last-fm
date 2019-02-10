@@ -1,14 +1,16 @@
 @import "../../styles/colors";
 
 .header {
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 .footerList a {
   font-size: 0.8rem;
   color: $secondary-font-color;
+  text-transform: capitalize;
 }
 
 .footerList a:hover {
   color: $primary-font-color;
+  text-decoration: none;
 }

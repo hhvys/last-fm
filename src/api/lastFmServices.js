@@ -11,28 +11,18 @@ const defaultParams = {
 const getUrlFromParams = params => baseUrl + $.param(params);
 const fetchJSONData = params => fetch(getUrlFromParams(params)).then(res => res.json());
 
-export function fetchGenres(limit = 15) {
+export function fetchTopCharts(chartsFor, limit = 15) {
     const params = {
-        method: 'chart.gettoptags',
+        method: `chart.gettop${chartsFor}s`,
         limit,
         ...defaultParams
     };
     return fetch(getUrlFromParams(params)).then(res => res.json())
 }
 
-export function fetchAlbumsFromGenre(genre, limit = 30) {
+export function fetchFromGenre(fetchFor, genre, limit = 30) {
     const params = {
-        method: 'tag.gettopalbums',
-        tag: genre,
-        limit,
-        ...defaultParams
-    };
-    return fetchJSONData(params);
-}
-
-export function fetchArtistsFromGenre(genre, limit = 20) {
-    const params = {
-        method: 'tag.getTopArtists',
+        method: `tag.gettop${fetchFor}s`,
         tag: genre,
         limit,
         ...defaultParams

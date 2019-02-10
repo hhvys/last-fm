@@ -24,7 +24,7 @@ const Footer = (props) => {
 
     return (
         <footer className={cx(styles.footer, 'd-flex w-100')} {...restProps}>
-            <div className={cx(styles.innerFooter, 'w-100 pt-4 d-flex')}>
+            <div className={cx(styles.innerFooter, 'w-100 pt-4 d-flex justify-content-around')}>
                 {renderSubComponents(props, FooterColumn)}
             </div>
         </footer>

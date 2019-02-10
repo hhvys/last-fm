@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import {Link} from "react-router-dom";
 
 import styles from './FooterColumn.module.scss';
 
@@ -17,8 +18,12 @@ const FooterColumn = (props) => {
             <h6 className={cx(styles.header, 'mb-2')}>{header}</h6>
             <ul className={styles.footerList}>
                 {
-                    itemList.map(item =>
-                        (<li key={item.key}><a href={item.url}>{item.content}</a></li>)
+                    itemList.map((item, index) =>
+                        (<li key={item.key || index}>
+                            <Link to={item.url || '#'}>
+                                {item.name}
+                            </Link>
+                        </li>)
                     )
                 }
             </ul>
@@ -33,8 +38,8 @@ FooterColumn.propTypes = {
   itemList: PropTypes.arrayOf(PropTypes.shape({
       key: PropTypes.oneOfType(
           [PropTypes.string, PropTypes.number]
-      ).isRequired,
-      content: PropTypes.string.isRequired,
+      ),
+      name: PropTypes.string.isRequired,
       url: PropTypes.string
   })),
 };

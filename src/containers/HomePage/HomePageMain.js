@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
 import ThumbnailContainer from '../../components/Thumbnail/ThumbnailContainer';
-import {fetchAlbumsFromGenre, fetchArtistsFromGenre} from '../../api/lastFmServices';
+import {fetchFromGenre} from '../../api/lastFmServices';
 import {imageSize} from "../../api/constants";
 import {getImageUrl} from "../../helpers/getSubComponentInstance";
 
@@ -50,7 +50,7 @@ function useFetchAlbumArtist(genre) {
         setIsArtistsLoading(true);
 
         //todo refactor
-        fetchAlbumsFromGenre(genre)
+        fetchFromGenre('album', genre)
             .then(albums => {
                 setAlbumDetails(albums.albums.album.map((album, index) => {
                     return ({
@@ -64,7 +64,7 @@ function useFetchAlbumArtist(genre) {
                 setIsAlbumsLoading(false);
             });
 
-        fetchArtistsFromGenre(genre)
+        fetchFromGenre('artist', genre, 20)
             .then(artists => {
                 setArtistDetails(artists.topartists.artist.map((artist, index) => {
                     return ({

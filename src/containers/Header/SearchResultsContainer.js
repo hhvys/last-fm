@@ -12,6 +12,8 @@ import ClickableImage from "../../components/ImageContainer/ClickableImage";
 import noResults from '../../rsc/noResults.png';
 import loading from '../../rsc/loading.gif';
 
+const DEBOUNCE_WAITING_TIME = 100;
+
 const SearchResultsContainer = (props) => {
 
     const {
@@ -79,7 +81,7 @@ const setResults = _.debounce((query, setSearchResults, setIsSearching) => {
             });
             setIsSearching(false);
         })
-}, 200);
+}, DEBOUNCE_WAITING_TIME);
 
 
 const useFetchSearchResults = (query) => {

@@ -46,9 +46,6 @@ const Header = (props) => {
                 {renderSubComponents(props, HeaderRight)}
                 {children}
             </header>
-            {/*<div className={cx(styles.searchResults, 'position-fixed w-100')}>*/}
-                {/*Hello*/}
-            {/*</div>*/}
         </>
     );
 };
